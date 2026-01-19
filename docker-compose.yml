@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:18
+    image: postgres:17
     container_name: healthcare_claims
     environment:
       POSTGRES_USER: postgres
