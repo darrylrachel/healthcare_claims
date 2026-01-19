@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:18
+    container_name: # Add docker container name
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: # Add database name
+    ports:
+      - "5440:5432" # Set port to 5440 for docker
+    volumes:
+      # Your datasets folder mounted into the container (read-only)
+      - ./datasets:/datasets:ro
+
+      # SQL scripts run automatically on first initialization
+      - ./sql:/docker-entrypoint-initdb.d:ro
